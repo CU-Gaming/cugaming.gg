@@ -1,0 +1,23 @@
+.about-content {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.about-heading {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.value-card {
+  max-width: 100%;
+  padding: 2%;
+  margin-bottom: 30px;
+  background-color: #565a5c;
+  color: #fff;
+}
+
+.about-card-heading {
+  font-size: 24px;
+  font-weight: 400;
+  color: #cfb87c;
+}

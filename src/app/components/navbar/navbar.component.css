@@ -1,0 +1,8 @@
+.navbar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+  background: #c7b87d;
+  color: #000000;
+}

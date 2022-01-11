@@ -1,0 +1,46 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  CU Boulder Esports
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img class="avatar" src="../assets/logo.png" />
+    <button routerLink="" mat-button class="menu-button">
+      <span>Home</span>
+    </button>
+    <button routerLink="/about" mat-button class="menu-button">
+      <span>About</span>
+    </button>
+    <button routerLink="/teams" mat-button class="menu-button">
+      <span>Teams</span>
+    </button>
+    <button routerLink="/recruitment" mat-button class="menu-button">
+      <span>Recruitment</span>
+    </button>
+    <button routerLink="/intramurals" mat-button class="menu-button">
+      <span>Intramurals</span>
+    </button>
+    <button routerLink="/leadership" mat-button class="menu-button">
+      <span>Leadership</span>
+    </button>
+    <button routerLink="/inclusion" mat-button class="menu-button">
+      <span>Inclusion</span>
+    </button>
+    <button routerLink="/socials" mat-button class="menu-button">
+      <span>Socials</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
