@@ -1,4 +1,5 @@
-import {Typography} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
+import {ContainerGrid} from "../components/layout/ContainerGrid";
 
 export function Home() {
     return (
