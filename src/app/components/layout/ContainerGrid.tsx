@@ -1,6 +1,6 @@
 import React from "react"
-import {Container, ContainerProps, Grid, Theme} from "@mui/material";
-import {useTheme} from "@mui/material";
+import {Box, Container, ContainerProps, Grid, Theme, useTheme} from "@mui/material";
+import {drawerWidth} from "../nav/Sidebar";
 
 export function ContainerGrid(props: ContainerProps): JSX.Element {
     const theme: Theme = useTheme()
@@ -11,11 +11,11 @@ export function ContainerGrid(props: ContainerProps): JSX.Element {
             overflow: 'auto',
             height: '100vh',
         }}>
-            {/*<Box sx={{*/}
-            {/*    ...theme.mixins.toolbar,*/}
-            {/*    position: 'relative',*/}
-            {/*    width: (sidebarOpen ? sidebarDrawerWidth : 1),*/}
-            {/*}}/>*/}
+            <Box sx={{
+                ...theme.mixins.toolbar,
+                position: 'relative',
+                width: (true ? drawerWidth : 1),
+            }}/>
             <Container
                 {...props}
                 sx={{

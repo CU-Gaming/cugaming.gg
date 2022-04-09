@@ -5,12 +5,15 @@ import {HashRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
 import {store} from "./app/store";
 import {Provider} from "react-redux";
+import {Root} from "./app/components/layout/Root";
 
 function App() {
     return (
         <Provider store={store}>
             <HashRouter>
-                <AppRoutes/>
+                <Root>
+                    <AppRoutes/>
+                </Root>
             </HashRouter>
         </Provider>
     );
