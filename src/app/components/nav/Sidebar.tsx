@@ -1,7 +1,6 @@
-import * as React from 'react';
-import {styled, useTheme} from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
-import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -9,12 +8,15 @@ import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from 'react-router-dom';
+// import HomeIcon from '@mui/icons-material/Home';
+// import InfoIcon from '@mui/icons-material/Info';
+// import GroupIcon from '@mui/icons-material/Group';
+// import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+// import FaceIcon from '@mui/icons-material/Face';
 
 export const drawerWidth = 240;
 
@@ -24,7 +26,7 @@ interface AppBarProps extends MuiAppBarProps {
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({theme, open}) => ({
+})<AppBarProps>(({ theme, open }) => ({
     transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -39,7 +41,7 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-const DrawerHeader = styled('div')(({theme}) => ({
+const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
@@ -57,12 +59,12 @@ export function NavBar() {
                     aria-label="open drawer"
                     onClick={() => null}
                     edge="start"
-                    sx={{mr: 2, ...(true && {display: 'none'})}}
+                    sx={{ mr: 2, ...(true && { display: 'none' }) }}
                 >
-                    <MenuIcon/>
+                    <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
-                    Persistent drawer
+                    cugaming.gg
                 </Typography>
             </Toolbar>
         </AppBar>)
@@ -87,28 +89,20 @@ export function Sidebar() {
         >
             <DrawerHeader>
                 <IconButton onClick={() => null}>
-                    {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
+                    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>
             </DrawerHeader>
-            <Divider/>
+            <Divider />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
-                        </ListItemIcon>
-                        <ListItemText primary={text}/>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider/>
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
-                        </ListItemIcon>
-                        <ListItemText primary={text}/>
+                <ListItem button key='Home' component={Link} to="/">
+                    <ListItemText primary='Home' />
+                </ListItem>
+                {['About', 'Inclusion', 'Intramurals', 'Leadership', 'Recruitment', 'Teams'].map((text, index) => (
+                    <ListItem button key={text} component={Link} to={text}>
+                        {/* <ListItemIcon>
+                            {index === 0 ? <HomeIcon/> : index === 1 ? <InfoIcon/> : index === 2 ? <GroupIcon/> : null}
+                        </ListItemIcon> */}
+                        <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>
