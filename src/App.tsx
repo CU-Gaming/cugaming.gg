@@ -12,15 +12,19 @@ import { Intramurals } from './app/pages/Intramurals';
 import { Leadership } from './app/pages/Leadership';
 import { Recruitment } from './app/pages/Recruitment';
 import { Teams } from './app/pages/Teams';
+import {ThemeProvider} from "@mui/material";
+import {darkTheme} from "./app/hooks/theme";
 
 function App() {
     return (
         <Provider store={store}>
-            <HashRouter>
-                <Root>
-                    <AppRoutes/>
-                </Root>
-            </HashRouter>
+            <ThemeProvider theme={darkTheme}>
+                <HashRouter>
+                    <Root>
+                        <AppRoutes/>
+                    </Root>
+                </HashRouter>
+            </ThemeProvider>
         </Provider>
     );
 }
