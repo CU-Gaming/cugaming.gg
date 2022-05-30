@@ -12,6 +12,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from 'react-router-dom';
+import CUGamingLogo from "../../assets/cugaming-logo.png"
+import {Avatar, Grid} from "@mui/material";
 // import HomeIcon from '@mui/icons-material/Home';
 // import InfoIcon from '@mui/icons-material/Info';
 // import GroupIcon from '@mui/icons-material/Group';
@@ -64,7 +66,7 @@ export function NavBar() {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
-                    cugaming.gg
+                    The University of Colorado
                 </Typography>
             </Toolbar>
         </AppBar>)
@@ -88,16 +90,30 @@ export function Sidebar() {
             open={true}
         >
             <DrawerHeader>
-                <IconButton onClick={() => null}>
-                    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                </IconButton>
+                {/*<IconButton onClick={() => null}>*/}
+                {/*    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}*/}
+                {/*</IconButton>*/}
+                <Grid container justifyContent="center">
+                    <Link to={'/'}>
+                        <Avatar
+                            alt="CU Gaming Logo"
+                            src={CUGamingLogo}
+                            variant="rounded"
+                            sx={{
+                                width: 96,
+                                height: 96,
+                                marginBottom: -8,
+                            }}
+                        />
+                    </Link>
+                </Grid>
             </DrawerHeader>
             <Divider />
-            <List>
+            <List sx={{marginTop: 6}}>
                 <ListItem button key='Home' component={Link} to="/">
                     <ListItemText primary='Home' />
                 </ListItem>
-                {['About', 'Inclusion', 'Intramurals', 'Leadership', 'Recruitment', 'Teams'].map((text, index) => (
+                {['Leadership', 'Recruitment', 'Teams', 'Intramurals'].map((text, index) => (
                     <ListItem button key={text} component={Link} to={text}>
                         {/* <ListItemIcon>
                             {index === 0 ? <HomeIcon/> : index === 1 ? <InfoIcon/> : index === 2 ? <GroupIcon/> : null}
